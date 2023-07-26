@@ -1,6 +1,6 @@
 // File: 3-all.js
 
-import { uploadPhoto, createUser } from "./utils"; // Assuming the functions are exported from utils.js
+const { uploadPhoto, createUser } = require("./utils"); // Use require() instead of import
 
 function handleProfileSignup() {
   const photoPromise = uploadPhoto();
@@ -15,5 +15,5 @@ function handleProfileSignup() {
     });
 }
 
-export default handleProfileSignup;
+module.exports = handleProfileSignup; // Export the function using module.exports
 
