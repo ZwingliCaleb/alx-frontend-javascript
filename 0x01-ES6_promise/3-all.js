@@ -1,19 +1,14 @@
-// File: 3-all.js
+import {
+  uploadPhoto,
+  createUser,
+} from './utils';
 
-const { uploadPhoto, createUser } = require("./utils"); // Use require() instead of import
-
-function handleProfileSignup() {
-  const photoPromise = uploadPhoto();
-  const userPromise = createUser();
-
-  Promise.all([photoPromise, userPromise])
-    .then(([photoResponse, userResponse]) => {
-      console.log(`${photoResponse.body} ${userResponse.firstName} ${userResponse.lastName}`);
+export default function handleProfileSignup() {
+  return Promise.all([uploadPhoto(), createUser()])
+    .then((response) => {
+      const { body } = response.shift();
+      const { firstName, lastName } = response.pop();
+      console.log(`${body} ${firstName} ${lastName}`);
     })
-    .catch((error) => {
-      console.log("Signup system offline");
-    });
+    .catch(() => console.log('Signup system offline'));
 }
-
-module.exports = handleProfileSignup; // Export the function using module.exports
-
