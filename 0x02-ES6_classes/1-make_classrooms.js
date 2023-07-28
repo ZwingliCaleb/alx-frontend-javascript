@@ -1,12 +1,10 @@
-// 1-make_classrooms.js whilst importing from 0-classroom.js
+import ClassRoom from './0-classroom';
 
-import ClassRoom from './0-classroom.js';
+export default function initializeRooms() {
+  const clsRooms = [];
+  clsRooms.push(new ClassRoom(19));
+  clsRooms.push(new ClassRoom(20));
+  clsRooms.push(new ClassRoom(34));
 
-function initializeRooms() {
-  const roomSizes = [19, 20, 34];
-  const rooms = roomSizes.map((size) => new ClassRoom(size));
-  return rooms;
+  return clsRooms;
 }
-
-export default initializeRooms;
-
