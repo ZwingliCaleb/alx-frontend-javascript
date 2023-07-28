@@ -1,48 +1,55 @@
-// 2-hbtn_course.js
-
+/* eslint-disable no-unreachable */
+/* eslint-disable no-underscore-dangle */
 class HolbertonCourse {
-  constructor(name, length, students) {
+  constructor(name = '', length = 0, students = []) {
+    if (typeof name !== 'string') {
+      throw TypeError('Name must be a string');
+    }
+
+    if (typeof length !== 'number') {
+      throw new TypeError('Length must be a number');
+    }
+
+    if (typeof students !== 'object') {
+      throw TypeError('Students must be an array');
+    }
+
     this._name = name;
     this._length = length;
     this._students = students;
   }
 
-  // Getter and Setter for name
+  set name(name = '') {
+    if (typeof name !== 'string') {
+      throw TypeError('Name must be a string');
+    }
+    this._name = name;
+  }
+
   get name() {
     return this._name;
   }
 
-  set name(newName) {
-    if (typeof newName !== 'string') {
-      throw new TypeError('Name must be a string');
+  set length(length = 0) {
+    if (typeof length !== 'number') {
+      throw new TypeError('Length must be a number');
     }
-    this._name = newName;
+    this._length = length;
   }
 
-  // Getter and Setter for length
   get length() {
     return this._length;
   }
 
-  set length(newLength) {
-    if (typeof newLength !== 'number') {
-      throw new TypeError('Length must be a number');
+  set students(students = []) {
+    if (typeof students !== 'object') {
+      throw TypeError('Students must be an array');
     }
-    this._length = newLength;
+    this._students = students;
   }
 
-  // Getter and Setter for students
   get students() {
     return this._students;
   }
-
-  set students(newStudents) {
-    if (!Array.isArray(newStudents)) {
-      throw new TypeError('Students must be an array');
-    }
-    this._students = newStudents;
-  }
 }
-
 export default HolbertonCourse;
-
