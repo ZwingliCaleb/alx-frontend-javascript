@@ -8,34 +8,19 @@ interface Teacher {
     [key: string]: any;
   }
   
-  // Create a teacher
-  const teacher1: Teacher = {
+  // Define the Directors interface that extends Teacher
+  interface Directors extends Teacher {
+    numberOfReports: number;
+  }
+  
+  // Create a director
+  const director1: Directors = {
     firstName: 'John',
     lastName: 'Doe',
     fullTimeEmployee: true,
-    location: 'New York',
-  };
-  
-  // Create a teacher with optional attributes
-  const teacher2: Teacher = {
-    firstName: 'Jane',
-    lastName: 'Smith',
-    fullTimeEmployee: false,
-    location: 'Los Angeles',
-    yearsOfExperience: 5,
-    contract: true,
-  };
-  
-  // Create a teacher with additional attributes
-  const teacher3: Teacher = {
-    firstName: 'John',
-    lastName: 'Doe',
-    fullTimeEmployee: false,
     location: 'London',
-    contract: false,
+    numberOfReports: 17,
   };
   
-  console.log(teacher1);
-  console.log(teacher2);
-  console.log(teacher3);
+  console.log(director1);
   
