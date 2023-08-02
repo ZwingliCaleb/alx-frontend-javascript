@@ -23,4 +23,19 @@ interface Teacher {
   };
   
   console.log(director1);
+
+ // Define an interface for the printTeacher function
+interface printTeacherFunction {
+    (firstName: string, lastName: string): string;
+  }
+  
+  // Define the printTeacher function
+  const printTeacher: printTeacherFunction = (firstName: string, lastName: string): string => {
+    const firstInitial = firstName.charAt(0).toUpperCase();
+    const formattedLastName = lastName.charAt(0).toUpperCase() + lastName.slice(1);
+    return `${firstInitial}. ${formattedLastName}`;
+  };
+  
+  // Example usage
+  console.log(printTeacher("John", "Doe")); // Output: J. Doe
   
