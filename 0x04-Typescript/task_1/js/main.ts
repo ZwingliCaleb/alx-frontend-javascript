@@ -1,41 +1,35 @@
-// Define the Teacher interface
-interface Teacher {
-    firstName: string;
-    lastName: string;
-    readonly fullTimeEmployee: boolean;
-    yearsOfExperience?: number;
-    readonly location: string;
-    [key: string]: any;
+// Define an interface for the StudentClass constructor
+interface StudentClassConstructor {
+    new (firstName: string, lastName: string): StudentClass;
   }
   
-  // Define the Directors interface that extends Teacher
-  interface Directors extends Teacher {
-    numberOfReports: number;
+  // Define an interface for the StudentClass methods
+  interface StudentClass {
+    workOnHomework(): string;
+    displayName(): string;
   }
   
-  // Create a director
-  const director1: Directors = {
-    firstName: 'John',
-    lastName: 'Doe',
-    fullTimeEmployee: true,
-    location: 'London',
-    numberOfReports: 17,
-  };
+  // Define the StudentClass
+  class StudentClass implements StudentClass {
+    private firstName: string;
+    private lastName: string;
   
-  console.log(director1);
-
- // Define an interface for the printTeacher function
-interface printTeacherFunction {
-    (firstName: string, lastName: string): string;
+    constructor(firstName: string, lastName: string) {
+      this.firstName = firstName;
+      this.lastName = lastName;
+    }
+  
+    workOnHomework(): string {
+      return "Currently working";
+    }
+  
+    displayName(): string {
+      return this.firstName;
+    }
   }
-  
-  // Define the printTeacher function
-  const printTeacher: printTeacherFunction = (firstName: string, lastName: string): string => {
-    const firstInitial = firstName.charAt(0).toUpperCase();
-    const formattedLastName = lastName.charAt(0).toUpperCase() + lastName.slice(1);
-    return `${firstInitial}. ${formattedLastName}`;
-  };
   
   // Example usage
-  console.log(printTeacher("John", "Doe")); // Output: J. Doe
+  const student = new StudentClass("John", "Doe");
+  console.log(student.displayName()); // Output: John
+  console.log(student.workOnHomework()); // Output: Currently working
   
