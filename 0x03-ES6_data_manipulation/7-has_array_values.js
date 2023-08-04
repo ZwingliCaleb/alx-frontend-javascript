@@ -3,4 +3,3 @@ function hasValuesFromArray(set, arr) {
 }
 
 export default hasValuesFromArray;
-

@@ -11,4 +11,3 @@ function updateUniqueItems(map) {
 }
 
 export default updateUniqueItems;
-

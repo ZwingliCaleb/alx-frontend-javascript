@@ -7,4 +7,3 @@ export default function getStudentIdsSum(getListStudents) {
   ];
   return myArr.reduce(((reducer, myArr) => reducer + myArr.id), 0);
 }
-
